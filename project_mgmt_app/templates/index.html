@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+ {% block content %}
+   <h1>Projects</h1>
+   {% if projects %}
+   <div class="row">
+     {% for project in projects %}
+       <div class="col-md-4 d-flex align-items-stretch">
+         <div class="card mb-4 shadow-sm">
+           <div class="card-body">
+               <p class="card-text">{{ project.name }}</p>
+               <p class="card-text">{{ project.user }}</p>
+               <h6 class="card-subtitle mb-2 text-muted"></h6>
+               <h6 class="card-subtitle mb-2 text-muted">Start date: {{ project.start_date }}</h6>
+               <h6 class="card-subtitle mb-2 text-muted">Due date: {{ project.due_date }}</h6>
+               <h6 class="card-subtitle mb-2 text-muted">Clients: {{ project.display_clients }}</h6>
+               <h6 class="card-subtitle mb-2 text-muted">Employees: {{ project.display_employees }}</h6>
+               <p class="card-text">Invoices:</p>
+               <h6 class="card-subtitle mb-2 text-muted">Date: {{ project.invoice }}</h6>
+           </div>
+         </div>
+       </div>
+     {% endfor %}
+   </div>
+   {% else %}
+     <p>No projects found</p>
+   {% endif %}
+
+ {% endblock %}
