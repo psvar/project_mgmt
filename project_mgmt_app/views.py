@@ -4,6 +4,7 @@ from .models import Project
 # Create your views here.
 def index(request):
     projects = Project.objects.all()
+    # project_invoice = Project.invoice.all()
     context = {
         'projects': projects,
     }

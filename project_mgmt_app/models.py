@@ -43,7 +43,7 @@ class Project(models.Model):
 class Invoice(models.Model):
     issue_date = models.DateField("Issue date")
     total_amount = models.IntegerField("Total amount")
-    project = models.ForeignKey("Project", on_delete=models.SET_NULL, null=True, default=None, related_name='invoice')
+    project = models.ForeignKey("Project", on_delete=models.SET_NULL, null=True, default=None, related_name='invoices')
 
     def __str__(self):
         return f"{self.total_amount} ({self.issue_date})"
@@ -52,7 +52,7 @@ class Invoice(models.Model):
 class Task(models.Model):
     task_name = models.CharField("Name", max_length=1000)
     notes = models.CharField("Notes", max_length=1000)
-    project = models.ForeignKey("Project", on_delete=models.SET_NULL, null=True, default=None)
+    project = models.ForeignKey("Project", on_delete=models.SET_NULL, null=True, default=None, related_name='tasks')
 
     def __str__(self):
         return f"{self.task_name}: {self.notes}"
