@@ -11,30 +11,7 @@
                <p class="card-text">{{ project.name }}</p>
                <p class="card-text">{{ project.user }}</p>
                <h6 class="card-subtitle mb-2 text-muted"></h6>
-               <h6 class="card-subtitle mb-2 text-muted">Start date: {{ project.start_date }}</h6>
                <h6 class="card-subtitle mb-2 text-muted">Due date: {{ project.due_date }}</h6>
-               <h6 class="card-subtitle mb-2 text-muted">Clients: {{ project.display_clients }}</h6>
-               <h6 class="card-subtitle mb-2 text-muted">Employees: {{ project.display_employees }}</h6>
-               <p class="card-text">Invoices:</p>
-               <h6 class="card-subtitle mb-2 text-muted">
-                  <ul>
-                    {% for invoice in project.invoices.all %}
-                        <li>{{ invoice }}</li>
-                    {% empty %}
-                        <li>No invoices found.</li>
-                    {% endfor %}
-                    </ul>
-               </h6>
-               <p class="card-text">Tasks:</p>
-               <h6 class="card-subtitle mb-2 text-muted">
-                  <ul>
-                    {% for task in project.tasks.all %}
-                        <li>{{ task }}</li>
-                    {% empty %}
-                        <li>No task found.</li>
-                    {% endfor %}
-                    </ul>
-               </h6>
            </div>
          </div>
        </div>
